@@ -251,7 +251,7 @@ for (let i = 0; i < 6; i++) {
 }
 //  }
 
-function changeColorOnClick(i){
+function changeColorOnClick(i) {
     resultFieldNodes[i].style.color = 'red'
 }
 
