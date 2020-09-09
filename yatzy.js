@@ -192,14 +192,23 @@ function calcSum() {
 }
 
 function calcTotal() {
-    let total = 0
+    let total = calcBonus()
     for (let i = 0; i < 15; i++) {
         if (resultFieldNodeHeld[i]) {
             total += parseInt(resultFieldNodes[i].value)
             changeColorOnClick(i);
         }
     }
+
     return total
+}
+
+function calcBonus() {
+    bonus = 0
+    if (calcSum() > 2) {
+        bonus = 50
+    }
+    return bonus
 }
 
 //----------------------------------GUI-----------------------------------------//
@@ -305,16 +314,9 @@ function updateGUI() {
             resultFieldNodes[i].style.color = 'black'
         }
     }
-    let sum = calcSum()
-    let total = calcTotal();
-    document.getElementById('sumText').value = sum
-    if (sum > 61) {
-        document.getElementById('bonusText').value = 50
-        total += 50
-    } else {
-        document.getElementById('bonusText').value = 0
-    }
-    document.getElementById('TotalText').value = total
+    document.getElementById('sumText').value = calcSum()
+    document.getElementById('bonusText').value = calcBonus()
+    document.getElementById('TotalText').value = calcTotal()
 }
 
 function updateFieldsAfterRoll() {
