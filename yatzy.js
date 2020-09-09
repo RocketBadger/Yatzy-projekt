@@ -238,7 +238,7 @@ const resultFieldNodeHeld = []
 const rollBtn = document.getElementById("roller")
 rollBtn.addEventListener('click', e => rollDice())
 
-//gameInit
+//gameInit {
 for (let i = 0; i < 15; i++) {
     resultFieldNodeHeld[i] = false
     resultFieldNodes[i].addEventListener('click', e => selectPointField(i))
@@ -249,10 +249,10 @@ for (let i = 0; i < 5; i++) {
 for (let i = 0; i < 6; i++) {
     dieSlotNodes[i].addEventListener('click', e => hold(i))
 }
-
+//  }
 
 function selectPointField(i) {
-    if (!resultFieldNodeHeld[i]) {
+    if (!resultFieldNodeHeld[i] && throwCount > 0) {
         selectedInTurn = i
     }
 }
@@ -272,12 +272,8 @@ function hold(i) {
 
 function gameEndAlert() {
     if (roundCount > 14) {
-        //alert('Round Over')
-        //} else {
         let proceed = confirm('You got: ' + calcTotal() + ' points! Play again?');
         if (proceed) {
-        //alert('Please close window')
-        // } else {
             roundCount = 15
         }
     }
