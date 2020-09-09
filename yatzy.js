@@ -196,7 +196,7 @@ function calcTotal() {
     for (let i = 0; i < 15; i++) {
         if (resultFieldNodeHeld[i]) {
             total += parseInt(resultFieldNodes[i].value)
-            resultFieldNodes[i].style.color = 'red'
+            changeColorOnClick(i);
         }
     }
     return total
@@ -251,9 +251,15 @@ for (let i = 0; i < 6; i++) {
 }
 //  }
 
+function changeColorOnClick(i){
+    resultFieldNodes[i].style.color = 'red'
+}
+
 function selectPointField(i) {
     if (!resultFieldNodeHeld[i] && throwCount > 0) {
         selectedInTurn = i
+    } else if (selectedInTurn) {
+        selectedInTurn = -1
     }
 }
 
