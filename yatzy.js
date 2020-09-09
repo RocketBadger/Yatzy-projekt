@@ -205,7 +205,7 @@ function calcTotal() {
 
 function calcBonus() {
     bonus = 0
-    if (calcSum() > 2) {
+    if (calcSum() > 62) {
         bonus = 50
     }
     return bonus
